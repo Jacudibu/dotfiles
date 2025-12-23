@@ -206,8 +206,7 @@ spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -259,9 +258,8 @@ window-rule {
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+// Block out Password Managers from screen capture
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
@@ -271,26 +269,24 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
+recent-windows {
+    on
+
+    highlight {
+	active-color   "#7aa2f7"
+	urgent-color   "#f7768e"
+	corner-radius  20
+    }
+
+    binds {
+	Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Ctrl+Tab        { next-window     filter="app-id"; }
+        Ctrl+Shift+Tab  { previous-window filter="app-id"; }
+    }
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
-    // in the end. To find an XKB name for a particular key, you may use a program
-    // like wev.
-    //
-    // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-    // when running as a winit window.
-    //
-    // Most actions that you can bind here can also be invoked programmatically with
-    // `niri msg action do-something`.
-
-    // Mod-Shift-/, which is usually the same as Mod-?,
-    // shows a list of important hotkeys.
     Mod+Shift+Minus { show-hotkey-overlay; }
 
     Mod+T hotkey-overlay-title="Terminal" { spawn "alacritty"; }
@@ -316,6 +312,7 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O hotkey-overlay-title="Zoom out into Overview" repeat=false { toggle-overview; }
+    Mod+Tab hotkey-overlay-title="Zoom out into Overview" repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
