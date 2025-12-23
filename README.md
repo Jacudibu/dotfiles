@@ -15,19 +15,19 @@ pacman -S git stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-$ git clone git@github.com/jacudibu/dotfiles.git .dotfiles
-$ cd .dotfiles
+git clone git@github.com/jacudibu/dotfiles.git .dotfiles
+cd .dotfiles
 ```
 
-then use GNU stow to create symlinks
+then use GNU stow to create symlinks:
 
 ```
-$ stow .
+stow .
 ```
 
 ## Adding more dotfiles
 
-Imitate the file structure you want to track:
+Imitate the file structure you want to track, e.g. the config file for [Niri](https://github.com/YaLTeR/niri):
 
 ```
 cd ~/.dotfiles
@@ -41,4 +41,4 @@ then tell stow to copy over the original file(s) and create the symlinks:
 stow --adopt .
 ```
 
-Another option would be do copy the file over, delete the orignal file, and then just run `stow .`.
+Another option would be to copy the file over, delete (or backup) the orignal file, and then just run `stow .`.
