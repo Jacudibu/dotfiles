@@ -1,13 +1,20 @@
+-- https://github.com/folke/tokyonight.nvim
+-- A fancy theme
+
 return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
 
     config = function() 
-        vim.cmd.colorscheme "tokyonight"
+        require("tokyonight").setup({
+            transparent = true,
+            styles = {
+                sidebars = "transparent",
+                floats = "transparent",
+            },
+        })
 
-        -- Make it transparent (Both Normal & Non-Current)
-        vim.api.nvim_set_hl(0, "Normal", {bg = "none" })
-        vim.api.nvim_set_hl(0, "NormalNC", {bg = "none" })
+        vim.cmd.colorscheme "tokyonight"
     end
 }

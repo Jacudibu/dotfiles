@@ -9,9 +9,6 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     config = function()
-        -- Disable background color
-        vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
-        vim.cmd([[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]])
         require("nvim-tree").setup {}
     end,
 }
