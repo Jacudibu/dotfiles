@@ -1,0 +1,17 @@
+-- A file explorer tree
+-- https://github.com/nvim-tree/nvim-tree.lua
+
+return {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+        -- Disable background color
+        vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
+        vim.cmd([[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]])
+        require("nvim-tree").setup {}
+    end,
+}
