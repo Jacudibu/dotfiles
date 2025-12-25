@@ -1,6 +1,4 @@
-# My dotfiles
-
-This directory contains the dotfiles for my system
+This directory contains the main system configuration for my machine.
 
 ## Requirements
 
@@ -15,8 +13,8 @@ pacman -S git stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-git clone git@github.com/jacudibu/dotfiles.git .dotfiles
-cd .dotfiles
+git clone git@github.com/jacudibu/dotfiles.git
+cd .dotfiles/home
 ```
 
 then use GNU stow to create symlinks:
@@ -30,9 +28,9 @@ stow .
 Imitate the file structure you want to track, e.g. the config file for [Niri](https://github.com/YaLTeR/niri):
 
 ```
-cd ~/.dotfiles
-mkdir .config/niri
-touch .config/niri/config.kdl
+cd ~/dotfiles/home
+mkdir dot-config/niri
+touch dot-config/niri/config.kdl
 ```
 
 then tell stow to copy over the original file(s) and create the symlinks:
