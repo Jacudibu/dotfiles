@@ -1,23 +1,13 @@
 This directory contains the main system configuration for my machine.
 
-## Requirements
+## Repository Structure
+- `/home` contains config files found within the home directory. It can easily be restored via GNU Stow.
+- `/root` contains config files found anywhere outside of the home directory. Restoration should happen manually if needed.
+- `/scripts` contains scripts which may be invoked via keybindings.
 
-Ensure you have **Git** and **GNU Stow** installed on your system:
+## Installating dotfiles via GNU stow
 
-```
-pacman -S git stow
-```
-
-## Installation
-
-First, check out the dotfiles repo in your $HOME directory using git
-
-```
-git clone git@github.com/jacudibu/dotfiles.git
-cd .dotfiles/home
-```
-
-then use GNU stow to create symlinks:
+`cd` into `~/dotfiles/home` and use `stow` to create symlinks:
 
 ```
 stow .
