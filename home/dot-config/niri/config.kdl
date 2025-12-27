@@ -1,6 +1,11 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+// Attempt to fix noctalia-shell notifications not clickable
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
 input {
     keyboard {
 	repeat-rate 35
@@ -18,7 +23,7 @@ input {
         accel-profile "adaptive"
     }
 
-    focus-follows-mouse max-scroll-amount="0%"
+    // focus-follows-mouse max-scroll-amount="0%"
 }
 
 output "HDMI-A-1" {
