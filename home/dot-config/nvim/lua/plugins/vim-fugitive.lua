@@ -2,6 +2,5 @@
 -- provides us with :Git commands
 
 return {
-	lazy = false,
 	"tpope/vim-fugitive",
 }

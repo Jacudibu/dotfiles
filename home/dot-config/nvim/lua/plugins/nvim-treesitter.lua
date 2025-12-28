@@ -10,12 +10,12 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			-- language parsers that MUST be installed
-			ensure_installed = {
+			 ensure_installed = {
         	    "bash",
-	            "csv",
-                "dockerfile",
-                "gitignore",
-                "json",
+        	    "csv",
+        	    "dockerfile",
+        	    "gitignore",
+        	    "json",
                 "lua",
                 "markdown",
                 "markdown_inline",

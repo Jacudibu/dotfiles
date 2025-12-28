@@ -1,5 +1,4 @@
 -- Common definitions for all lsps
--- TODO: I feel like these should probably go into config...
 
 local M = {}
 

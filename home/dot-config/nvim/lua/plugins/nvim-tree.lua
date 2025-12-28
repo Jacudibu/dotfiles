@@ -16,6 +16,7 @@ return {
     },
     config = function()
         require("nvim-tree").setup {
+            -- setup nvim-tree-preview
             on_attach = function(bufnr)
                 local api = require('nvim-tree.api')
 
