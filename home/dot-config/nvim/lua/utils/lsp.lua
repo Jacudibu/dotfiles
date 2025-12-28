@@ -2,13 +2,25 @@
 
 local M = {}
 
-M.on_attach = function(event)
-	local client = vim.lsp.get_client_by_id(event.data.client_id)
+M.on_attach = function(args)
+	local client
+	local bufnr
+
+	-- Called from LspAttach autocmd
+	if args.data and args.data.client_id then
+		client = vim.lsp.get_client_by_id(args.data.client_id)
+		bufnr = args.buf
+	else
+		-- Called directly by an LSP (rustaceanvim)
+		client = args
+		bufnr = vim.api.nvim_get_current_buf()
+	end
+
 	if not client then
 		return
 	end
-	local bufnr = event.buf
-	local keymap = vim.keymap.set
+
+    local keymap = vim.keymap.set
 	local opts = {
 		noremap = true, -- prevent recursive mapping
 		silent = true, -- don't print the command to the cli
