@@ -17,6 +17,8 @@ return function(capabilities)
 	local cpplint = require("efmls-configs.linters.cpplint") -- c/cpp linter
 	local clangformat = require("efmls-configs.formatters.clang_format") -- c/cpp formatter
 	local solhint = require("efmls-configs.linters.solhint") -- solidity linter
+    local sqruff = require("efmls-configs.formatters.sqruff") -- sqls
+
 
 	vim.lsp.config("efm", {
 		capabilities = capabilities,
@@ -33,6 +35,7 @@ return function(capabilities)
 			"lua",
 			"markdown",
 			"python",
+            "sql",
 			"sh",
 			"solidity",
 			"svelte",
@@ -62,6 +65,7 @@ return function(capabilities)
 				lua = { luacheck, stylua },
 				markdown = { prettier_d },
 				python = { flake8, black },
+                sql = { sqruff },
 				sh = { shellcheck, shfmt },
 				solidity = { solhint, prettier_d },
 				svelte = { eslint_d, prettier_d },
