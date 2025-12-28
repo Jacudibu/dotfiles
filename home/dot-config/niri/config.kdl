@@ -143,10 +143,10 @@ recent-windows {
     }
 
     binds {
-	Alt+Tab         { next-window; }
-        Alt+Shift+Tab   { previous-window; }
-        Ctrl+Tab        { next-window     filter="app-id"; }
-        Ctrl+Shift+Tab  { previous-window filter="app-id"; }
+	    Alt+Tab             { next-window; }
+        Alt+Shift+Tab       { previous-window; }
+        Mod+Ctrl+Tab        { next-window     filter="app-id"; }
+        Mod+Ctrl+Shift+Tab  { previous-window filter="app-id"; }
     }
 }
 
