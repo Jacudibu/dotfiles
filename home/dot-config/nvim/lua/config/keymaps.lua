@@ -32,3 +32,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 -- File Explorer
 vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
 vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+
+-- auto format
+vim.keymap.set({ "n", "v" }, "<leader>fmt", function()
+    vim.lsp.buf.format { async = true }
+end, { desc = "[LSP] autoformat" })
+
