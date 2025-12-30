@@ -35,8 +35,10 @@ output "DP-1" {
     scale 1
     transform "normal"
     position x=0 y=0
-    //variable-refresh-rate // causes flickering. :/
     focus-at-startup
+
+    // VRR causes flickering. Can be enabled dynamically for certain games through window rules.
+    variable-refresh-rate on-demand=true
 }
 
 layout {
@@ -103,6 +105,13 @@ animations {
     on
 }
 
+gestures {
+    // by default, moving the mouse into the top left corner of the screen would enter overview mode
+    hot-corners {
+        off
+    }
+}
+
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
@@ -131,6 +140,14 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
+}
+
+// Autosizing and hiding of Steam Friend List
+window-rule {
+    match app-id="steam" title="Friends List"
+
+    default-column-width { fixed 300; }
+    block-out-from "screen-capture"
 }
 
 recent-windows {
