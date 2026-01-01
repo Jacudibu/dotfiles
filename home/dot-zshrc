@@ -78,6 +78,7 @@ source $ZSH/oh-my-zsh.sh
 
 export DEFAULT_USER=$USER
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
