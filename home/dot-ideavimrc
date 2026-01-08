@@ -1,0 +1,138 @@
+"" Settings for the IdeaVim plugin.
+
+"" Base Settings
+"" ========================================================
+set scrolloff=10
+set relativenumber
+set number
+set showmode
+set showcmd
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed
+
+let mapleader = " "
+
+"" Plugin Settings
+"" ========================================================
+
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+set commentary
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+" Which-key configuration based on mappings
+set which-key
+
+let g:WhichKeyDesc_action = "<leader>a actions"
+let g:WhichKeyDesc_display = "<leader>d display options"
+let g:WhichKeyDesc_error = "<leader>e error navigation"
+let g:WhichKeyDesc_file = "<leader>f file navigation"
+let g:WhichKeyDesc_goto = "<leader>g go tos"
+let g:WhichKeyDesc_refactoring = "<leader>r refactoring"
+let g:WhichKeyDesc_window = "<leader>w window options"
+let g:WhichKeyDesc_collapse = "<leader>z collapse options"
+
+"" Key mappings
+"" ========================================================
+
+" Quickly exit insert mode
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation (use Alt + hl to move between panes)
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+
+" Jump between methods (specific to IdeaVim actions)
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Popup navigation in insert mode
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+"" Leader commands
+"" ========================================================
+
+" Comment lines
+nmap <leader>c :action CommentByLineComment<CR>
+
+" Jump around with EasyMotion
+nmap <leader>j <Plug>(easymotion-s)
+
+" Open NERDTree (toggle with leader + x)
+nmap <leader>x :NERDTreeToggle<CR>
+
+ " Folding regions
+nmap <leader>zc :action CollapseAllRegions<CR>
+nmap <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits (vertical, horizontal, unsplit, move)
+nmap <leader>wv :action SplitVertically<CR>
+nmap <leader>ws :action SplitHorizontally<CR>
+nmap <leader>wu :action Unsplit<CR>
+nmap <leader>wm :action MoveEditorToOppositeTabGroup<CR>
+
+" Display options
+" nmap <leader>dd :action ToggleDistractionFreeMode<CR>
+" nmap <leader>dz :action ToggleZenMode<CR>
+" nmap <leader>df :action ToggleFullScreen<CR>
+
+" Actions
+nmap <leader>am :action ShowIntentionActions<CR>
+nmap <leader>as :action SearchEverywhere<CR>
+
+" File navigation
+nmap <leader>fi :action GotoFile<CR>
+nmap <leader>fr :action RecentFiles<CR>
+nmap <leader>ff :action FindInPath<CR>
+nmap <leader>fl :action RecentLocations<CR>
+nmap <leader>fs :action NewScratchFile<CR>
+
+" Close active tab
+nmap <leader>q :action CloseContent<CR>
+
+" Refactoring
+nmap <leader>rn :action RenameElement<CR>
+nmap <leader>rm :action ExtractMethod<CR>
+nmap <leader>rv :action IntroduceVariable<CR>
+nmap <leader>rf :action IntroduceField<CR>
+nmap <leader>rs :action ChangeSignature<CR>
+nmap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+
+" Go to code
+nmap <leader>gd :action GotoDeclaration<CR>
+nmap <leader>gy :action GotoTypeDeclaration<CR>
+nmap <leader>gi :action GotoImplementation<CR>
+nmap <leader>gu :action ShowUsages<CR>
+nmap <leader>gt :action GotoTest<CR>
+nmap <leader>gf :action Back<CR>
+nmap <leader>gb :action Forward<CR>
+
+" Git windows
+" nmap <leader>gc :action CheckinProject<CR>
+" nmap <leader>gs :action ActivateVersionControlToolWindow<CR>
+
+" Errors navigation
+nmap <leader>en :action ReSharperGotoNextErrorInSolution<CR>
+nmap <leader>ep :action ReSharperGotoPrevErrorInSolution<CR>
